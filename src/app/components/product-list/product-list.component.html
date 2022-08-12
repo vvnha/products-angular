@@ -1,0 +1,32 @@
+<section id="product-list" class="section product-list">
+  <h2 class="section__title">Projects</h2>
+
+  <div class="product-list__grid">
+    <div class="product" *ngFor="let productItem of productList">
+      <div class="product__name">
+        <h3>{{ productItem.name }}</h3>
+      </div>
+
+      <div class="product__img">
+        <img
+          data-id="thumbnail"
+          src="https://images.unsplash.com/photo-1523206489230-c012c64b2b48?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+          class="card-img-top"
+          alt="recipe"
+        />
+      </div>
+
+      <p class="product__description">{{ productItem.description }}</p>
+
+      <ul class="product__stack">
+        <li class="product__stack-item">
+          <a href="!#" (click)="onClickSeeDetail($event, productItem.code)">
+            <button type="button" class="btn btn--outline">
+              See product detail
+            </button>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>

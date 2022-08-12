@@ -1,0 +1,176 @@
+<div class="product__form">
+  <h3 class="product__form__title">ADD NEW PRODUCT</h3>
+
+  <div class="product__form__img">
+    <img
+      data-id="thumbnail"
+      src="https://images.unsplash.com/photo-1523206489230-c012c64b2b48?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+      class="card-img-top"
+      alt="recipe"
+      hidden
+    />
+  </div>
+
+  <form
+    id="postForm"
+    [formGroup]="formData"
+    (ngSubmit)="onSubmit()"
+    class="post-form"
+  >
+    <div class="form__group">
+      <label htmlFor="product__form__name">Product Name*</label>
+      <input
+        id="product-name"
+        type="text"
+        class="form-control"
+        name="name"
+        formControlName="name"
+        placeholder="Eg: Iphone 13 Pro"
+      />
+
+      <div class="invalid-field" *ngIf="!formData.controls['name'].valid">
+        Name is required
+      </div>
+    </div>
+
+    <div class="form__group mb-3">
+      <label htmlFor="product-code">Code*</label>
+      <input
+        id="product-code"
+        type="text"
+        class="form-control"
+        name="code"
+        placeholder="Eg: 123"
+        formControlName="code"
+      />
+
+      <div class="invalid-field" *ngIf="!formData.controls['code'].valid">
+        Code is required
+      </div>
+    </div>
+
+    <div class="form__group mb-3">
+      <label htmlFor="product-category">Category*</label>
+      <input
+        id="product-category"
+        type="text"
+        class="form-control"
+        name="category"
+        placeholder="Eg: 123"
+        formControlName="category"
+      />
+
+      <div class="invalid-field" *ngIf="!formData.controls['category'].valid">
+        Category is required
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form__group col-md-6 mb-3">
+        <label htmlFor="product-brand">Brand</label>
+        <input
+          id="product-brand"
+          type="text"
+          class="form-control"
+          name="brand"
+          placeholder="Eg: 123"
+          formControlName="brand"
+        />
+
+        <div class="invalid-field" *ngIf="!formData.controls['brand'].valid">
+          Invalid typing
+        </div>
+      </div>
+
+      <div class="form__group col-md-6 mb-3">
+        <label htmlFor="product-type">Type</label>
+        <input
+          id="product-type"
+          type="text"
+          class="form-control"
+          name="type"
+          formControlName="type"
+          placeholder="Eg: Mobile Phones"
+        />
+        <div class="invalid-field" *ngIf="!formData.controls['type'].valid">
+          Invalid typing
+        </div>
+      </div>
+    </div>
+
+    <div class="form__group mb-3">
+      <label htmlFor="product-price">Price($)</label>
+      <input
+        id="product-price"
+        type="text"
+        class="form-control"
+        name="price"
+        formControlName="price"
+        placeholder="Eg: 100"
+      />
+      <div class="invalid-field" *ngIf="!formData.controls['price'].valid">
+        Invalid typing
+      </div>
+    </div>
+
+    <div class="form__group mb-3">
+      <label htmlFor="product-desc">Description</label>
+      <textarea
+        id="product-desc"
+        class="form-control"
+        name="description"
+        formControlName="description"
+        rows="3"
+      ></textarea>
+      <div
+        class="invalid-field"
+        *ngIf="!formData.controls['description'].valid"
+      >
+        Invalid typing
+      </div>
+    </div>
+
+    <div class="form__group mb-3" hidden>
+      <button type="button" class="btn btn-primary uploadImage" hidden>
+        Upload File
+      </button>
+    </div>
+
+    <div
+      class="input-group mb-3"
+      data-id="imageSource"
+      data-image-source="upload"
+      hidden
+    >
+      <label class="input-group-text" htmlFor="uploadImage" hidden>
+        Upload
+      </label>
+
+      <input
+        name="image"
+        type="file"
+        class="form-control"
+        id="uploadImage"
+        accept="image/*"
+        hidden
+      />
+
+      <div class="invalid-feedback"></div>
+    </div>
+
+    <ul class="product__form__stack">
+      <li class="product__form__stack-item">
+        <button
+          type="button"
+          (click)="onClickBack($event)"
+          class="btn btn--outline--secondary"
+        >
+          BACK
+        </button>
+      </li>
+      <li class="product__form__stack-item">
+        <button type="submit" class="btn btn--outline">SAVE</button>
+      </li>
+    </ul>
+  </form>
+</div>

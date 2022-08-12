@@ -1,0 +1,78 @@
+<ng-container *ngIf="!isExisted">
+  <app-not-found></app-not-found>
+</ng-container>
+
+<ng-container *ngIf="isLoading">
+  <app-loader></app-loader>
+</ng-container>
+
+<ng-container *ngIf="isExisted && !isLoading">
+  <section id="product-list" class="section product-list">
+    <h2 class="section__title">Product Detail</h2>
+    <div class="product__detail">
+      <div class="product__left__detail">
+        <div class="product__img">
+          <img
+            data-id="thumbnail"
+            src="https://images.unsplash.com/photo-1523206489230-c012c64b2b48?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+            class="card-img-top"
+            alt="recipe"
+          />
+        </div>
+      </div>
+      <div class="product__right__detail">
+        <h3>{{ product?.name }}</h3>
+
+        <div class="product__price">
+          <p class="new__price">
+            <span>${{ product?.price }}</span>
+          </p>
+        </div>
+
+        <p class="product__description">{{ product?.description }}</p>
+
+        <div class="product__detail_infor">
+          <ul>
+            <li>
+              Code: <span>{{ product?.code }}</span>
+            </li>
+            <li>
+              Category: <span>{{ product?.category }}</span>
+            </li>
+            <li>
+              Brand: <span>{{ product?.brand }}</span>
+            </li>
+            <li>
+              Type: <span>{{ product?.type }}</span>
+            </li>
+          </ul>
+        </div>
+
+        <ul class="product__detail__stack">
+          <li class="product__detail__stack-item">
+            <a href="!#">
+              <button
+                type="button"
+                class="btn btn--outline--danger"
+                (click)="onClickDelete($event)"
+              >
+                DELETE
+              </button>
+            </a>
+          </li>
+          <li class="product__detail__stack-item">
+            <a href="!#">
+              <button
+                type="button"
+                class="btn btn--outline"
+                (click)="onClickUpdate($event)"
+              >
+                UPDATE
+              </button>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</ng-container>

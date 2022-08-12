@@ -1,0 +1,29 @@
+<!-- About -->
+<!-- <app-about></app-about> -->
+<!-- Projects -->
+<div>
+  <ng-container *ngIf="!isLoading; then loaderDone; else loaderNotDone">
+  </ng-container>
+
+  <ng-template #loaderDone>
+    <app-product-list
+      #products
+      (onClickDetail)="handleClickDetail($event)"
+      [productList]="productList"
+    ></app-product-list>
+  </ng-template>
+
+  <ng-template #loaderNotDone><app-loader></app-loader></ng-template>
+
+  <app-pagination
+    [currentPage]="page"
+    [totalPage]="totalPage"
+    (handleClickPagination)="handlePagination($event)"
+  ></app-pagination>
+</div>
+
+<!-- Skills -->
+<!-- <app-skills> </app-skills> -->
+
+<!-- Contact -->
+<!-- <app-contact></app-contact> -->
